@@ -5,17 +5,21 @@
 
 ## Description
 
-Game's purpose and description
+This game will try to imitate the best-selling 2D platform game Hollow Knight, from Team Cherry.
 
 ## User stories MVP
 
 Minimum user stories:
 
-- User can ...
+- User can move right.
+- User can move left.
+- User can receive damage.
+- User can fall out of the picture.
 
 ## User stories Backlog
 
-- User can ...
+- User can attack.
+- User can destroy environment.
 
 ## File structure
 
