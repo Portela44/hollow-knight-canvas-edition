@@ -8,11 +8,13 @@ class Game{
     document.addEventListener('keydown', (event) => {
       switch (event.code) {
         case 'ArrowLeft':
-          this.meatball.moveLeft();
+          this.knight.moveLeft();
           break;
         case 'ArrowRight':
-          this.meatball.moveRight();
+          this.knight.moveRight();
           break;
+        case "spaceBar":
+          this.knight.jump();
         default:
           break;
       }
