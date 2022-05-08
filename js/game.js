@@ -14,8 +14,9 @@ class Game{
         case "ArrowRight":
           this.knight.moveRight();
           break;
-        case "ArrowUp":
+        case "Space":
           this.knight.jump();
+          break;
         default:
           break;
       }

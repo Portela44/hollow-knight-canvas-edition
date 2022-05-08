@@ -5,6 +5,8 @@ class Player {
         this.width = width;
         this.height = height;
         this.stepDistance = 25;
+        this.jumpHeight = 200;
+        this.jumping = false;
     }
 
     moveRight() {
@@ -20,19 +22,19 @@ class Player {
     }
 
     jump() {
-        const limit = 150 //Jump limit height reachable
-        const jump_y = this.y;
-        const maxHeight = 600;
-        const maxWidth = 1000;
-        let position = 0;
-        let goingDown = false;
-        let jumping = setInterval(jump, 100);
-
-        function Draw() {
-            ctx.font = "20px Georgia";
-            ctx.beginPath();
-            ctx.fillStyle = "red";
+        const jumpReference = this.y;
+        const jumpUp = () => {
+            if((this.y > jumpReference-this.jumpHeight) && (!this.jumping)) {
+                this.y-=20;
+            } else {
+                this.jumping = true;
+                this.y+=20;
+                if(this.y === jumpReference) {
+                    clearInterval(jumpId);
+                    this.jumping = false;
+                }
+            }
         }
-
+        const jumpId = setInterval(jumpUp, 20);
     }
 }
