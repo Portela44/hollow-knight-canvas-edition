@@ -12,40 +12,46 @@ class Player {
     moveRight() {
         //if(!this.insideWall("Right")) {
             this.x = this.x + this.stepDistance;
+            if(this.jumping === false) {
+                this._fallDown();
+            }
         //}   
     }
 
     moveLeft() {
         //if(!this.insideWall("Right")) {
             this.x = this.x - this.stepDistance;
+            if(this.jumping === false) {
+                this._fallDown();
+            }
         //}   
     }
     
-    //allows the player to jump in the air a certain this.jumpHeight, and fall again on the ground.
+    //allows the player to jump in the air a certain this.jumpHeight, BUT NOT fall again on the ground.
     jump() {
         const jumpReference = this.y;
+        this.jumping = true;
         const jumpUp = () => {
-            if((this.y > jumpReference-this.jumpHeight) && (!this.jumping)) {
+            if(this.y > jumpReference-this.jumpHeight) {
                 this.y-=20;
-            } else {
-                this.jumping = true;
-                this.y+=20;
-                if(hallownest.onTheGround(this)) {
-                    clearInterval(jumpId);
-                    this.jumping = false;
-                }
+            } else if (this.y >= jumpReference-this.jumpHeight) {
+                clearInterval(jumpId);
+                this.jumping = false;
             }
         }
         const jumpId = setInterval(jumpUp, 20);
+        this._fallDown();
     }
     
     //makes the player fall down if no ground is detected under feet.
     _fallDown() {
         const fallDown = () => {
-            if(!hallownest.onTheGround(this)) {
-                this.y+=20;
-            } else {
-                clearInterval(fallId);
+            if (this.jumping === false) {
+                if(!hallownest.onTheGround(this)) {
+                    this.y+=20;
+                } else {
+                    clearInterval(fallId);
+                }
             }
         }
         const fallId = setInterval(fallDown, 20);
