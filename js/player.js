@@ -29,9 +29,10 @@ class Player {
     
     //allows the player to jump in the air a certain this.jumpHeight, BUT NOT fall again on the ground.
     jump() {
-        const jumpReference = this.y;
-        this.jumping = true;
-        const jumpUp = () => {
+        if(hallownest.onTheGround(this)) {
+            const jumpReference = this.y;
+            this.jumping = true;
+            const jumpUp = () => {
             if(this.y > jumpReference-this.jumpHeight) {
                 this.y-=20;
             } else if (this.y >= jumpReference-this.jumpHeight) {
@@ -39,8 +40,9 @@ class Player {
                 this.jumping = false;
             }
         }
-        const jumpId = setInterval(jumpUp, 20);
+        const jumpId = setInterval(jumpUp, 24);
         this._fallDown();
+        }
     }
     
     //makes the player fall down if no ground is detected under feet.
@@ -54,6 +56,6 @@ class Player {
                 }
             }
         }
-        const fallId = setInterval(fallDown, 20);
+        const fallId = setInterval(fallDown, 24);
     }
 }
