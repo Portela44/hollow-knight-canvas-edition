@@ -1,17 +1,10 @@
 class Scenario {
-    constructor(context) {
-        this.ctx = context;
-    }
-
-    //temporary scenario blocks:
-    _drawScenario() {
-        this.ctx.lineWidth = 20;
-        this.ctx.strokeStyle = "brown";
-        this.ctx.strokeRect(0, 600, 650, 250);
+    constructor() {
     }
 
 
     //checks if there is a wall where the player is trying to move
+    /*
     checkWall(side, player) {
         let referenceDistance;
         if(side === "Right") {
@@ -26,18 +19,19 @@ class Scenario {
     insideWall(xCoordenate, player) {
         let intoWall = false;
         if() {
-
+            intoWall = true;
         }
 
     }
+    */
 
     onTheGround(player) {
         let ground = false;
         //block 1
-        if((player.y === 350) && (player.x >= 0) && (player.x <= 600 - player.width)) {
+        if((player.y === 350) && (player.x >= 0) && (player.x <= 500)) {
             ground = true;
         //block 2
-        } else if((player.y === 250) && (player.x >= 600 - player.width) && (player.x <= 1000)) {
+        } else if((player.y === 250) && (player.x >= 500 - player.width/2) && (player.x <= 1000)) {
             ground = true;
         }
         return ground;
@@ -45,4 +39,6 @@ class Scenario {
 }
 
 const hallownest = new Scenario();
+
+
 
