@@ -34,6 +34,7 @@ class Game{
   _update() {
     this._clean();
     this.drawKnight();
+    hallownest._drawScenario();
     window.requestAnimationFrame(() => this._update());
   }
 
