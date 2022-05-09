@@ -2,24 +2,15 @@ class Scenario {
     constructor() {
     }
 
-    //checks if there is a wall where the player is trying to move
-    /*
-    checkWall(side, player) {
-        let referenceDistance;
-        if(side === "Right") {
-            referenceDistance = this.x + this.width + this.stepDistance;
-        } else if(side === "Left") {
-            referenceDistance = this.x + this.stepDistance;
-        }
-        return ;
-    }
-*/
-    //maps all lateral collisions to wall in the map. xCoordinate anticipates where the user wants to move, while yCoordenate is actual player.y.
-    insideWall(side, xCoordinate, yCoordinate) {
+    //checks if received xCoordinate, yCoordinate are inside a wall.
+    insideWall(xCoordinate, yCoordinate) {
         let intoWall = false;
-        if((side === "Left") && (xCoordinate <= 0)) {
+        if(xCoordinate <=0) {
+            intoWall = true;
+        } else if ((xCoordinate >= 450) && (yCoordinate >= 350)) {
             intoWall = true;
         }
+        return intoWall;
     }
     
 
