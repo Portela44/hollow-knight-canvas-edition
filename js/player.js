@@ -10,7 +10,6 @@ class Player {
     }
 
     moveRight() {
-        console.log(this.x)
         if(!hallownest.insideWall(this.x + this.width*3/8 + this.stepDistance, this.y)) {
             this.x = this.x + this.stepDistance;
             if(this.jumping === false) {
