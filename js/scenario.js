@@ -2,7 +2,6 @@ class Scenario {
     constructor() {
     }
 
-
     //checks if there is a wall where the player is trying to move
     /*
     checkWall(side, player) {
@@ -32,6 +31,7 @@ class Scenario {
         //block 2
         } else if((player.y === 250) && (player.x >= 500 - player.width*5/8) && (player.x <= 580)) {
             ground = true;
+        //block 3
         } else if ((player.y === 250) && (player.x >= 700 - player.width/2) && (player.x <= 1000)) {
             ground = true;
         }
