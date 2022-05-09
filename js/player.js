@@ -29,12 +29,23 @@ class Player {
             } else {
                 this.jumping = true;
                 this.y+=20;
-                if(this.y === jumpReference) {
+                if(hallownest.onTheGround(this)) {
                     clearInterval(jumpId);
                     this.jumping = false;
                 }
             }
         }
         const jumpId = setInterval(jumpUp, 20);
+    }
+
+    _fallDown() {
+        const fallDown = () => {
+            if(!hallownest.onTheGround(this)) {
+                this.y+=20;
+            } else {
+                clearInterval(fallId);
+            }
+        }
+        const fallId = setInterval(fallDown, 20);
     }
 }
