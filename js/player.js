@@ -1,12 +1,15 @@
 class Player {
-    constructor (x, y, width, height) {
+    constructor (x, y, width, height, health, strength) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+        this.health = health;
+        this.strength = strength;
         this.stepDistance = 25;
         this.jumpHeight = 200;
         this.jumping = false;
+        this.canGetDamage = true;
     }
 
     moveRight() {
@@ -58,4 +61,15 @@ class Player {
         }
         const fallId = setInterval(fallDown, 24);
     }
+
+    //generic function of getting damage from any enemy
+    _getDamage() {
+        if(this.canGetDamage) {
+            this.health = this.health - 1;
+        }
+        this.canGetDamage = false;
+        let damageCoolDown = setTimeout(() => this.canGetDamage = true, 3000);
+        clearTimeout(damageCoolDown);
+    }
+
 }
