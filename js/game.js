@@ -65,6 +65,19 @@ class Game{
     }
   }
 
+  // Función de ataque
+  _activateAttack() {
+    // enemigo que está en el rango de ataque
+    enemigo.recieveDamage(this.knight.attack());
+  }
+
+  _checkAttackRange() {
+    // enemigos mirar quien está cerca
+    // a ese aplico _attackAttack()
+  }
+
+  // Aplicar a una tecla
+
   _checkCollisions() {
     this.enemies.forEach((enemy) => {
       if(
