@@ -17,13 +17,13 @@ class Scenario {
     onTheGround(player) {
         let ground = false;
         //block 1
-        if((player.y === 350) && (player.x >= 0-player.width*5/8) && (player.x <= 500)) {
+        if((player.y === 350) && (player.x >= 0) && (player.x <= 500)) {
             ground = true;
         //block 2
-        } else if((player.y === 250) && (player.x >= 500 - player.width*5/8) && (player.x <= 580)) {
+        } else if((player.y === 250) && (player.x >= 500) && (player.x <= 700)) {
             ground = true;
         //block 3
-        } else if ((player.y === 250) && (player.x >= 700 - player.width/2) && (player.x <= 1000)) {
+        } else if ((player.y === 250) && (player.x >= 700) && (player.x <= 1000)) {
             ground = true;
         }
         return ground;

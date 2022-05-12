@@ -13,7 +13,7 @@ class Player {
     }
 
     moveRight() {
-        if(!hallownest.insideWall(this.x + this.width*3/8 + this.stepDistance, this.y)) {
+        if(!hallownest.insideWall(this.x + this.stepDistance, this.y)) {
             this.x = this.x + this.stepDistance;
             if(this.jumping === false) {
                 this._fallDown();
@@ -22,7 +22,7 @@ class Player {
     }
 
     moveLeft() {
-        if(!hallownest.insideWall(this.x + this.width*3/8 - this.stepDistance, this.y)) {
+        if(!hallownest.insideWall(this.x - this.stepDistance, this.y)) {
             this.x = this.x - this.stepDistance;
             if(this.jumping === false) {
                 this._fallDown();
@@ -75,7 +75,7 @@ class Player {
     //generic function of getting damage from any enemy
     attack() {
         if(this.canAttack) {
-            
+
         }
     }
 

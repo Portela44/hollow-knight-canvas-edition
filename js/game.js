@@ -1,8 +1,8 @@
 class Game{
   constructor(context) {
     this.ctx = context;
-    this.knight = new Player(0, 350, 128, 128, 4, 100);
-    this.ghost = new Enemy(200, 350, 128, 128, 200);
+    this.knight = new Player(25, 350, 55, 118, 4, 100);
+    this.ghost = new Enemy(200, 340, 128, 128, 200);
     this.enemies = [];    
   }
 
@@ -61,7 +61,12 @@ class Game{
   }
 
   _checkCollisions() {
-    
+    this.enemies.forEach((enemy) => {
+      if(
+        ((this.knight.x >= enemy.x) && (this.knight.x <= enemy.x + enemy.width)) ||
+        ((this.knight.x >= enemy.x) && (this.knight.x <= enemy.x + enemy.width))
+      );
+    })
   }
 
   _clean(){
