@@ -4,6 +4,7 @@ class Enemy {
         this.y = y;
         this.width = width;
         this.height = height;
+        this.health = health;
         this.moveRandomInterval = undefined;
     }
 
@@ -21,7 +22,7 @@ class Enemy {
     }
 
     _getDamage() {
-        
+        this.health = this.health - knight.strength;
     }
 
 }

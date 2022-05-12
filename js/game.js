@@ -2,7 +2,7 @@ class Game{
   constructor(context) {
     this.ctx = context;
     this.knight = new Player(0, 350, 128, 128, 4, 100);
-    this.ghost = new Enemy(200, 350, 128, 128, 100);
+    this.ghost = new Enemy(200, 350, 128, 128, 200);
     // this.ghost._moveRandom();
   }
 
@@ -56,7 +56,7 @@ class Game{
   }
 
   _checkCollisions() {
-
+    
   }
 
   _clean(){

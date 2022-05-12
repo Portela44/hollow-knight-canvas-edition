@@ -72,4 +72,11 @@ class Player {
         clearTimeout(damageCoolDown);
     }
 
+    //generic function of getting damage from any enemy
+    attack() {
+        if(this.canAttack) {
+            
+        }
+    }
+
 }
