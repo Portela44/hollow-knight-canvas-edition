@@ -5,12 +5,12 @@ class Player {
         this.width = width;
         this.height = height;
         this.health = health;
-        this.strength = strength;
+        this.strength = strength; //hit strenght
         this.stepDistance = 25;
         this.jumpHeight = 200;
         this.jumping = false;
-        this.canGetDamage = true;
-        this.inv = false;
+        this.canGetDamage = true; // controls knight's damage cooldown
+        this.inv = false; // controls if knight turns around when walking
     }
 
     moveRight() {
@@ -72,10 +72,9 @@ class Player {
             this.canGetDamage = false;
             setTimeout(() => this.canGetDamage = true, 3000);
         }
-        // clearTimeout(damageCoolDown);
     }
 
-    //generic function of getting damage from any enemy
+    //generic function of getting damage from any enemy (needed?)
     attack() {
         if(this.canAttack) {
             return this.strength;

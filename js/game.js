@@ -48,7 +48,7 @@ class Game{
   _drawScenario() {
     this.ctx.lineWidth = 10;
     this.ctx.strokeRect(5, (350+this.knight.height), 500, 250);
-    this.ctx.strokeRect(505, (250+this.knight.height), 140, 250);
+    this.ctx.strokeRect(505, (250+this.knight.height), 130, 250);
     this.ctx.strokeRect(705, (250+this.knight.height), 290, 250);
   }
 
@@ -60,7 +60,7 @@ class Game{
       this.ctx.drawImage(lifeHit, 150, 20, 24, 30),
       this.ctx.drawImage(lifeHit, 185, 20, 24, 30),
     ]
-    for(let i = 1; i <= healthArr.length; i++) {
+    for(let i = 1; i <= this.knight.health; i++) {
       healthArr[i];
     }
   }

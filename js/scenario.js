@@ -20,10 +20,10 @@ class Scenario {
         if((player.y === 350) && (player.x >= 0) && (player.x <= 500)) {
             ground = true;
         //block 2
-        } else if((player.y === 250) && (player.x > 450) && (player.x <= 700)) {
+        } else if((player.y === 250) && (player.x > 450) && (player.x <= 615)) {
             ground = true;
         //block 3
-        } else if ((player.y === 250) && (player.x >= 700) && (player.x <= 1000)) {
+        } else if ((player.y === 250) && (player.x >= 650) && (player.x <= 1000)) {
             ground = true;
         }
         return ground;
