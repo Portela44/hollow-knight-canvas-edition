@@ -66,16 +66,16 @@ class Player {
     _getDamage() {
         if(this.canGetDamage) {
             this.health = this.health - 1;
+            this.canGetDamage = false;
+            setTimeout(() => this.canGetDamage = true, 3000);
         }
-        this.canGetDamage = false;
-        let damageCoolDown = setTimeout(() => this.canGetDamage = true, 3000);
-        clearTimeout(damageCoolDown);
+        // clearTimeout(damageCoolDown);
     }
 
     //generic function of getting damage from any enemy
     attack() {
         if(this.canAttack) {
-
+            return this.strength;
         }
     }
 
