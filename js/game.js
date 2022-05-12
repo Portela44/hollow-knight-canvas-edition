@@ -3,7 +3,7 @@ class Game{
     this.ctx = context;
     this.knight = new Player(0, 350, 128, 128, 4, 100);
     this.ghost = new Enemy(200, 350, 128, 128, 200);
-    // this.ghost._moveRandom();
+    this.enemies = [];    
   }
 
   _assignControls() {
@@ -27,6 +27,11 @@ class Game{
 
   drawKnight() {
     this.ctx.drawImage(knight, this.knight.x, this.knight.y, this.knight.width, this.knight.height);
+  }
+
+  arrayOfEnemies() {
+    this.enemies.push(this.ghost);
+    //Any additional enemies will be placed here
   }
 
   drawEnemy() {
