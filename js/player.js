@@ -10,11 +10,13 @@ class Player {
         this.jumpHeight = 200;
         this.jumping = false;
         this.canGetDamage = true;
+        this.inv = false;
     }
 
     moveRight() {
         if(!hallownest.insideWall(this.x + this.stepDistance, this.y)) {
             this.x = this.x + this.stepDistance;
+            this.inv = false;
             if(this.jumping === false) {
                 this._fallDown();
             }
@@ -24,6 +26,7 @@ class Player {
     moveLeft() {
         if(!hallownest.insideWall(this.x - this.stepDistance, this.y)) {
             this.x = this.x - this.stepDistance;
+            this.inv = true;
             if(this.jumping === false) {
                 this._fallDown();
             }

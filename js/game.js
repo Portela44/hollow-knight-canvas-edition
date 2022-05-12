@@ -26,7 +26,12 @@ class Game{
   }
 
   drawKnight() {
-    this.ctx.drawImage(knight, this.knight.x, this.knight.y, this.knight.width, this.knight.height);
+    if(!this.knight.inv) {
+      this.ctx.drawImage(knight, this.knight.x, this.knight.y, this.knight.width, this.knight.height);
+    } else if(this.knight.inv) {
+      this.ctx.drawImage(knightinv, this.knight.x, this.knight.y, this.knight.width, this.knight.height);
+    }
+    
   }
 
   arrayOfEnemies() {

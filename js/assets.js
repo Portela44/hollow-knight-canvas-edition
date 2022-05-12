@@ -2,6 +2,9 @@
 const knight = new Image();
 knight.src = "./img/default.png";
 
+const knightinv = new Image();
+knightinv.src = "./img/defaultinv.png"
+
 //knight walking animation
 
 //knight jumping animation
