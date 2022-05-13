@@ -92,14 +92,22 @@ class Game{
         ((this.knight.y >= enemy.y) && (this.knight.y <= enemy.y + enemy.height)) ||
         ((this.knight.y >= enemy.y) && (this.knight.y <= enemy.y + enemy.height)) ||
         ((enemy.y >= this.knight.y) && (enemy.y <= this.knight.y + this.knight.height))
-      ));
-      //this.damageSound.play();
-      this.knight._getDamage();
-      if (this.knight.health < 1) {
-        console.log("you lose!");
-        //this.gameOver();
+      )) 
+      {
+        //this.damageSound.play();
+        this.knight._getDamage();
+        if (this.knight.health < 1) {
+          this.gameOver();
+        }
       }
     })
+  }
+
+  gameOver() {
+    const losePage = document.getElementById("lose-page");
+    losePage.style = "display: flex";
+    const canvas = document.getElementById("canvas");
+    canvas.style = "display: none";
   }
 
   _clean(){
@@ -112,6 +120,8 @@ class Game{
     this.drawEnemy();
     this._drawScenario();
     this._drawHealth();
+    this.arrayOfEnemies();
+    this._checkCollisions();
     window.requestAnimationFrame(() => this._update());
   }
 
