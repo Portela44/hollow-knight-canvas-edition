@@ -23,7 +23,7 @@ class Scenario {
         } else if((player.y === 250) && (player.x > 450) && (player.x <= 615)) {
             ground = true;
         //block 3
-        } else if ((player.y === 250) && (player.x >= 650) && (player.x <= 1000)) {
+        } else if ((player.y === 250) && (player.x >= 670) && (player.x <= 1000)) {
             ground = true;
         }
         return ground;

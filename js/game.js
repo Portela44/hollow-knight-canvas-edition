@@ -70,9 +70,12 @@ class Game{
     // enemigo que está en el rango de ataque
     enemigo.recieveDamage(this.knight.attack());
   }
+  //Recordar eliminar enemigo de la array si lo mato para que deje de aparecer
 
   _checkAttackRange() {
-    // enemigos mirar quien está cerca
+    if(!this.knight.inv) {
+
+    }
     // a ese aplico _attackAttack()
   }
 
@@ -80,10 +83,22 @@ class Game{
 
   _checkCollisions() {
     this.enemies.forEach((enemy) => {
-      if(
+      if((
         ((this.knight.x >= enemy.x) && (this.knight.x <= enemy.x + enemy.width)) ||
-        ((this.knight.x >= enemy.x) && (this.knight.x <= enemy.x + enemy.width))
-      );
+        ((this.knight.x >= enemy.x) && (this.knight.x <= enemy.x + enemy.width)) ||
+        ((enemy.x >= this.knight.x) && (enemy.x <= this.knight.x + this.knight.width)) 
+      ) &&
+      (
+        ((this.knight.y >= enemy.y) && (this.knight.y <= enemy.y + enemy.height)) ||
+        ((this.knight.y >= enemy.y) && (this.knight.y <= enemy.y + enemy.height)) ||
+        ((enemy.y >= this.knight.y) && (enemy.y <= this.knight.y + this.knight.height))
+      ));
+      //this.damageSound.play();
+      this.knight._getDamage();
+      if (this.knight.health < 1) {
+        console.log("you lose!");
+        //this.gameOver();
+      }
     })
   }
 
