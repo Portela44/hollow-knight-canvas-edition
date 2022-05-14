@@ -2,8 +2,9 @@ class Game{
   constructor(context) {
     this.ctx = context;
     this.knight = new Player(25, 350, 55, 118, 4, 100);
-    this.ghost = new Enemy(200, 340, 128, 128, 200);
-    this.enemies = [];    
+    this.ghost = new Enemy(200, 340, 65, 130, 200);
+    this.enemies = [];
+    this.healthArr = [];
   }
 
   _assignControls() {
@@ -19,6 +20,9 @@ class Game{
         case "Space":
           this.knight.jump();
           break;
+        case "KeyW":
+          this.knight.attack();
+          break;          
         default:
           break;
       }
@@ -54,14 +58,35 @@ class Game{
 
   _drawHealth() {
     this.ctx.drawImage(lifeHUD, 10, 10, 120, 75);
-    const healthArr = [
-      this.ctx.drawImage(lifeHit, 80, 20, 24, 30),
-      this.ctx.drawImage(lifeHit, 115, 20, 24, 30),
-      this.ctx.drawImage(lifeHit, 150, 20, 24, 30),
-      this.ctx.drawImage(lifeHit, 185, 20, 24, 30),
-    ]
-    for(let i = 1; i <= this.knight.health; i++) {
-      healthArr[i];
+    switch(this.knight.health) {
+      case 1: 
+        this.healthArr = [
+        this.ctx.drawImage(lifeHit, 80, 20, 24, 30),
+        ];
+        break;
+      case 2:
+        this.healthArr = [
+        this.ctx.drawImage(lifeHit, 80, 20, 24, 30),
+        this.ctx.drawImage(lifeHit, 115, 20, 24, 30),
+        ];
+        break;
+      case 3:
+        this.healthArr = [
+        this.ctx.drawImage(lifeHit, 80, 20, 24, 30),
+        this.ctx.drawImage(lifeHit, 115, 20, 24, 30),
+        this.ctx.drawImage(lifeHit, 150, 20, 24, 30),
+        ];
+        break;  
+      case 4:
+        this.healthArr = [
+        this.ctx.drawImage(lifeHit, 80, 20, 24, 30),
+        this.ctx.drawImage(lifeHit, 115, 20, 24, 30),
+        this.ctx.drawImage(lifeHit, 150, 20, 24, 30),
+        this.ctx.drawImage(lifeHit, 185, 20, 24, 30),
+        ];
+        break; 
+      default:
+      break;
     }
   }
 
@@ -117,11 +142,12 @@ class Game{
   _update() {
     this._clean();
     this.drawKnight();
+    this.arrayOfEnemies();
     this.drawEnemy();
     this._drawScenario();
-    this._drawHealth();
-    this.arrayOfEnemies();
     this._checkCollisions();
+    this._drawHealth();
+    console.log(this.knight.health);
     window.requestAnimationFrame(() => this._update());
   }
 

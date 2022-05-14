@@ -10,6 +10,7 @@ class Player {
         this.jumpHeight = 200;
         this.jumping = false;
         this.canGetDamage = true; // controls knight's damage cooldown
+        this.canAttack = true // controls knight's attack cooldown
         this.inv = false; // controls if knight turns around when walking
     }
 
@@ -76,6 +77,7 @@ class Player {
 
     //generic function of getting damage from any enemy (needed?)
     attack() {
+        console.log("attack!");
         if(this.canAttack) {
             return this.strength;
         }
