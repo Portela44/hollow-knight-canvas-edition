@@ -133,7 +133,7 @@ class Game{
   }
 
   _checkWin() {
-    if(this.knight.x > 1000) {
+    if(this.knight.x > 980) {
       this.youWin();
     }
   }
