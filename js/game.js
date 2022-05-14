@@ -104,8 +104,6 @@ class Game{
     // a ese aplico _attackAttack()
   }
 
-  // Aplicar a una tecla
-
   _checkCollisions() {
     this.enemies.forEach((enemy) => {
       if((
@@ -128,8 +126,27 @@ class Game{
     })
   }
 
+  _checkFallDown() {
+    if(this.knight.y > 600+this.knight.height) {
+      this.gameOver();
+    }
+  }
+
+  _checkWin() {
+    if(this.knight.x > 1000) {
+      this.youWin();
+    }
+  }
+
   gameOver() {
     const losePage = document.getElementById("lose-page");
+    losePage.style = "display: flex";
+    const canvas = document.getElementById("canvas");
+    canvas.style = "display: none";
+  }
+
+  youWin() {
+    const losePage = document.getElementById("win-page");
     losePage.style = "display: flex";
     const canvas = document.getElementById("canvas");
     canvas.style = "display: none";
@@ -146,8 +163,9 @@ class Game{
     this.drawEnemy();
     this._drawScenario();
     this._checkCollisions();
+    this._checkFallDown();
+    this._checkWin();
     this._drawHealth();
-    console.log(this.knight.health);
     window.requestAnimationFrame(() => this._update());
   }
 
