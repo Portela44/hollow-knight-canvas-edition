@@ -92,7 +92,7 @@ class Game{
 
   // Función de ataque
   _activateAttack() {
-    // enemigo que está en el rango de ataque
+    this.arrayOfEnemies.forEach()
     enemigo.recieveDamage(this.knight.attack());
   }
   //Recordar eliminar enemigo de la array si lo mato para que deje de aparecer

@@ -74,13 +74,4 @@ class Player {
             setTimeout(() => this.canGetDamage = true, 3000);
         }
     }
-
-    //generic function of getting damage from any enemy (needed?)
-    attack() {
-        console.log("attack!");
-        if(this.canAttack) {
-            return this.strength;
-        }
-    }
-
 }
