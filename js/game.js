@@ -34,7 +34,7 @@ class Game{
 
   drawKnight() {
     if(!this.knight.inv) {
-      this.ctx.drawImage(knight, this.knight.x, this.knight.y, this.knight.width, this.knight.height);
+      this.ctx.drawImage(this.knight.image, this.knight.x, this.knight.y, this.knight.width, this.knight.height);
     } else if(this.knight.inv) {
       this.ctx.drawImage(knightinv, this.knight.x, this.knight.y, this.knight.width, this.knight.height);
     }  
@@ -94,11 +94,13 @@ class Game{
     }
   }
 
-  // Función de ataque 
+  // Attack action when W is pressed.
   makeAttack() {
+    //first we set attack cooldown
     if(this.knight.canAttack) {
       this.knight.canAttack = false;
       setTimeout(() => this.knight.canAttack = true, 1000);
+      //then we proceed with proper attack action
       this.enemies.forEach(enemy => {
         if(this._checkAttackRange(enemy)) {
           enemy._getDamage(this.knight.strength)

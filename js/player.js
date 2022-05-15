@@ -12,13 +12,27 @@ class Player {
         this.attackRange = 45;
         this.canGetDamage = true; // controls knight's damage cooldown
         this.canAttack = true // controls knight's attack cooldown
+        //animtation parameters
+        this.image = walkRightAnimation[0];
+        this.leftStepCounter = 0;
+        this.rightStepCounter = 0;
         this.inv = false; // controls if knight turns around when walking
+        //jumping with gravity
+
     }
 
     moveRight() {
         this.inv = false;
         if(!hallownest.insideWall(this.x + this.stepDistance, this.y)) {
             this.x = this.x + this.stepDistance;
+            //We reset the contrary stepcounter, so it gets default when turn around
+            this.leftStepCounter=0;
+            this.image = walkRightAnimation[this.rightStepCounter];
+            this.rightStepCounter++;
+            if(this.rightStepCounter === walkRightAnimation.length) {
+                this.image = walkRightAnimation[0];
+                this.rightStepCounter = 0;
+            }
             if(this.jumping === false) {
                 this._fallDown();
             }
