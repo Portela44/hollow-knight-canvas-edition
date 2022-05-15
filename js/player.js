@@ -16,6 +16,8 @@ class Player {
         this.image = walkRightAnimation[0];
         this.leftStepCounter = 0;
         this.rightStepCounter = 0;
+        this.leftJumpCounter = 1;
+        this.rightJumpCounter = 1;
         this.inv = false; // controls if knight turns around when walking
         //jumping with gravity
 
@@ -43,6 +45,14 @@ class Player {
         this.inv = true;
         if(!hallownest.insideWall(this.x - this.stepDistance, this.y)) {
             this.x = this.x - this.stepDistance;
+            //We reset the contrary stepcounter, so it gets default when turn around
+            this.rightStepCounter=0;
+            this.image = walkLeftAnimation[this.leftStepCounter];
+            this.leftStepCounter++;
+            if(this.leftStepCounter === walkLeftAnimation.length) {
+                this.image = walkLeftAnimation[0];
+                this.leftStepCounter = 0;
+            }
             if(this.jumping === false) {
                 this._fallDown();
             }
@@ -56,13 +66,23 @@ class Player {
             this.jumping = true;
             const jumpUp = () => {
                 if(this.y > jumpReference-this.jumpHeight) {
-                    this.y-=20;
+                    this.y-=40;
+                    if(!this.inv) {
+                        this.image = jumpRightAnimation[this.rightJumpCounter]
+                        this.rightJumpCounter++;
+                    } else if(this.inv) {
+                        this.image = jumpLeftAnimation[this.leftJumpCounter]
+                        this.leftJumpCounter++;
+                    }
                 } else if (this.y >= jumpReference-this.jumpHeight) {
                     clearInterval(jumpId);
                     this.jumping = false;
+                    this.rightJumpCounter=1;
+                    this.leftJumpCounter=1;
+                    this.image = walkRightAnimation[0];
                 }
             }
-            const jumpId = setInterval(jumpUp, 24);
+            const jumpId = setInterval(jumpUp, 30);
             this._fallDown();
         }
     }

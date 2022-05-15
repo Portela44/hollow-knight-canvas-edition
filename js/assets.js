@@ -66,7 +66,66 @@ walkLeft8.src = "./img/walkLeft8.png";
 const walkLeftAnimation = [walkLeft0, walkLeft1, walkLeft2, walkLeft3, walkLeft4, walkLeft5, walkLeft6, walkLeft7, walkLeft8];
 
 
-//knight jumping animation
+//knight jumping Right animation
+
+const jumpRight1 = new Image();
+jumpRight1.src = "./img/jumpRight1.png";
+
+const jumpRight2 = new Image();
+jumpRight2.src = "./img/jumpRight2.png";
+
+const jumpRight3 = new Image();
+jumpRight3.src = "./img/jumpRight3.png";
+
+const jumpRight4 = new Image();
+jumpRight4.src = "./img/jumpRight4.png";
+
+const jumpRight5 = new Image();
+jumpRight5.src = "./img/jumpRight5.png";
+
+const jumpRight6 = new Image();
+jumpRight6.src = "./img/jumpRight6.png";
+
+const jumpRight7 = new Image();
+jumpRight7.src = "./img/jumpRight7.png";
+
+const jumpRight8 = new Image();
+jumpRight8.src = "./img/jumpRight8.png";
+
+const jumpRight9 = new Image();
+jumpRight9.src = "./img/jumpRight9.png";
+
+const jumpRightAnimation = [jumpRight1, jumpRight2, jumpRight3, jumpRight4, jumpRight5, jumpRight6, jumpRight7, jumpRight8, jumpRight9]
+
+//knight jumping Left animation
+
+const jumpLeft1 = new Image();
+jumpLeft1.src = "./img/jumpLeft1.png";
+
+const jumpLeft2 = new Image();
+jumpLeft2.src = "./img/jumpLeft2.png";
+
+const jumpLeft3 = new Image();
+jumpLeft3.src = "./img/jumpLeft3.png";
+
+const jumpLeft4 = new Image();
+jumpLeft4.src = "./img/jumpLeft4.png";
+
+const jumpLeft5 = new Image();
+jumpLeft5.src = "./img/jumpLeft5.png";
+
+const jumpLeft6 = new Image();
+jumpLeft6.src = "./img/jumpLeft6.png";
+
+const jumpLeft7 = new Image();
+jumpLeft7.src = "./img/jumpLeft7.png";
+
+const jumpLeft8 = new Image();
+jumpLeft8.src = "./img/jumpLeft8.png";
+
+const jumpLeft9 = new Image();
+jumpLeft9.src = "./img/jumpLeft9.png";
+
 
 // ghost default
 const ghost = new Image();

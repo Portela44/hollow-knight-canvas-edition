@@ -33,11 +33,7 @@ class Game{
   }
 
   drawKnight() {
-    if(!this.knight.inv) {
-      this.ctx.drawImage(this.knight.image, this.knight.x, this.knight.y, this.knight.width, this.knight.height);
-    } else if(this.knight.inv) {
-      this.ctx.drawImage(knightinv, this.knight.x, this.knight.y, this.knight.width, this.knight.height);
-    }  
+    this.ctx.drawImage(this.knight.image, this.knight.x, this.knight.y, this.knight.width, this.knight.height);
   }
 
   drawEnemies() {
