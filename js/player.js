@@ -19,7 +19,10 @@ class Player {
         this.leftJumpCounter = 1;
         this.rightJumpCounter = 1;
         this.inv = false; // controls if knight turns around when walking
-        //jumping with gravity
+        //gravity parameters
+        this.drag = 0.99;
+        this.gravity = 0.9;
+        this.speed = -11;
 
     }
 
