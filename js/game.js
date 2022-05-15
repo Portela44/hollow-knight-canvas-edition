@@ -40,14 +40,13 @@ class Game{
     }  
   }
 
-  arrayOfEnemies() {
-    //this.enemies.push(this.ghost);
-    //Any additional enemies will be placed here
-    //ALERT! two enemies cannot have the same name.
-  }
-
   drawEnemies() {
     this.enemies.forEach(enemy => {
+      if(!enemy.inv) {
+        enemy.image = enemiesImages[this.enemies.indexOf(enemy)][1];
+      } else if (enemy.inv) {
+        enemy.image = enemiesImages[this.enemies.indexOf(enemy)][0];
+      }
       this.ctx.drawImage(enemy.image, enemy.x, enemy.y, enemy.width, enemy.height);
     });
   }
@@ -193,7 +192,6 @@ class Game{
   _update() {
     this._clean();
     this.drawKnight();
-    //this.arrayOfEnemies();
     this.drawEnemies();
     this._drawScenario();
     this._checkCollisions();

@@ -16,6 +16,14 @@ ghost.src = "./img/ghost.png";
 const ghostinv = new Image();
 ghostinv.src = "./img/ghostinv.png"
 
+// enemies image array of arrays
+const enemiesImages = [
+    [
+        ghost, ghostinv
+    ],
+    
+]
+
 // Life HUD
 const lifeHUD = new Image();
 lifeHUD.src = "./img/life-HUD.png";
