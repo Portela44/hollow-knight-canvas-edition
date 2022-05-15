@@ -126,6 +126,7 @@ jumpLeft8.src = "./img/jumpLeft8.png";
 const jumpLeft9 = new Image();
 jumpLeft9.src = "./img/jumpLeft9.png";
 
+const jumpLeftAnimation = [jumpLeft1, jumpLeft2, jumpLeft3, jumpLeft4, jumpLeft5, jumpLeft6, jumpLeft7, jumpLeft8, jumpLeft9]
 
 // ghost default
 const ghost = new Image();

@@ -7,8 +7,8 @@ class Player {
         this.health = health;
         this.strength = strength; //hit strenght
         this.stepDistance = 25;
-        this.jumpHeight = 200;
-        this.jumping = false;
+        //this.jumpHeight = 200;
+        //this.jumping = false;
         this.attackRange = 45;
         this.canGetDamage = true; // controls knight's damage cooldown
         this.canAttack = true // controls knight's attack cooldown
@@ -21,8 +21,8 @@ class Player {
         this.inv = false; // controls if knight turns around when walking
         //gravity parameters
         this.drag = 0.99;
-        this.gravity = 0.9;
-        this.speed = -11;
+        this.gravity = 1.2;
+        this.speed = -20;
 
     }
 
@@ -39,7 +39,7 @@ class Player {
                 this.rightStepCounter = 0;
             }
             if(this.jumping === false) {
-                this._fallDown();
+                //this._fallDown();
             }
         }   
     }
@@ -57,7 +57,7 @@ class Player {
                 this.leftStepCounter = 0;
             }
             if(this.jumping === false) {
-                this._fallDown();
+                //this._fallDown();
             }
         }   
     }
@@ -65,32 +65,48 @@ class Player {
     //allows the player to jump in the air a certain this.jumpHeight, BUT NOT fall again on the ground.
     jump() {
         if(hallownest.onTheGround(this)) {
-            const jumpReference = this.y;
-            this.jumping = true;
             const jumpUp = () => {
-                if(this.y > jumpReference-this.jumpHeight) {
-                    this.y-=40;
-                    if(!this.inv) {
-                        this.image = jumpRightAnimation[this.rightJumpCounter]
-                        this.rightJumpCounter++;
-                    } else if(this.inv) {
-                        this.image = jumpLeftAnimation[this.leftJumpCounter]
-                        this.leftJumpCounter++;
-                    }
-                } else if (this.y >= jumpReference-this.jumpHeight) {
+                this.speed += this.gravity;
+                this.speed *= this.drag;
+                this.y += this.speed
+                if(!this.inv) {
+                    this.image = jumpRightAnimation[this.rightJumpCounter]
+                } else if(this.inv) {
+                    this.image = jumpLeftAnimation[this.leftJumpCounter]
+                }
+                //we stop the going-up animation at frame 5, until the top of the jump is reached.
+                if((this.rightJumpCounter < 5) && (this.leftJumpCounter < 5)) {
+                    this.rightJumpCounter++;
+                    this.leftJumpCounter++;
+                }/*
+                if((this.speed > 0) && (this.rightJumpCounter < jumpRightAnimation.length-1) && (this.leftJumpCounter < jumpLeftAnimation.length-1)) {
+                    //we continue the animation at frame 6 until floor is reached.
+                    this.rightJumpCounter++;
+                    this.leftJumpCounter++;
+                }*/
+
+                if(hallownest.onTheGround(this)) {
                     clearInterval(jumpId);
                     this.jumping = false;
                     this.rightJumpCounter=1;
                     this.leftJumpCounter=1;
-                    this.image = walkRightAnimation[0];
+                    if(!this.inv) {
+                        this.image = walkRightAnimation[0];
+                    } else if (this.inv) {
+                        this.image = walkLeftAnimation[0];
+                    }
+                    this.drag = 0.99;
+                    this.gravity = 1.2;
+                    this.speed = -20;
                 }
             }
             const jumpId = setInterval(jumpUp, 30);
-            this._fallDown();
         }
     }
     
+    
     //makes the player fall down if no ground is detected under feet.
+    /*
     _fallDown() {
         const fallDown = () => {
             if (this.jumping === false) {
@@ -98,11 +114,15 @@ class Player {
                     this.y+=20;
                 } else {
                     clearInterval(fallId);
+                    this.drag = 0.99;
+                    this.gravity = 0.9;
+                    this.speed = -11;
                 }
             }
         }
         const fallId = setInterval(fallDown, 24);
     }
+    */
 
     //generic function of getting damage from any enemy
     _getDamage() {

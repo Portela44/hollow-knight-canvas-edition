@@ -1,7 +1,7 @@
 class Game{
   constructor(context) {
     this.ctx = context;
-    this.knight = new Player(25, 350, 55, 118, 4, 100);
+    this.knight = new Player(25, 350, 70, 118, 4, 100);
     this.ghost = new Enemy(200, 340, 65, 130, 200);
     //ALERT! two enemies cannot have the same name.
     this.enemies = [
