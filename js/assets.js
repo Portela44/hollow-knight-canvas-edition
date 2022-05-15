@@ -13,6 +13,9 @@ knightinv.src = "./img/defaultinv.png"
 const ghost = new Image();
 ghost.src = "./img/ghost.png";
 
+const ghostinv = new Image();
+ghostinv.src = "./img/ghostinv.png"
+
 // Life HUD
 const lifeHUD = new Image();
 lifeHUD.src = "./img/life-HUD.png";

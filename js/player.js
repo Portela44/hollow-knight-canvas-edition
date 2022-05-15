@@ -8,6 +8,7 @@ class Player {
         this.strength = strength; //hit strenght
         this.stepDistance = 25;
         this.jumpHeight = 200;
+        this.jumping = false;
         this.attackRange = 35;
         this.canGetDamage = true; // controls knight's damage cooldown
         this.canAttack = true // controls knight's attack cooldown
@@ -38,11 +39,13 @@ class Player {
     jump() {
         if(hallownest.onTheGround(this)) {
             const jumpReference = this.y;
+            this.jumping = true;
             const jumpUp = () => {
                 if(this.y > jumpReference-this.jumpHeight) {
                     this.y-=20;
                 } else if (this.y >= jumpReference-this.jumpHeight) {
                     clearInterval(jumpId);
+                    this.jumping = false;
                 }
             }
             const jumpId = setInterval(jumpUp, 24);
@@ -53,10 +56,12 @@ class Player {
     //makes the player fall down if no ground is detected under feet.
     _fallDown() {
         const fallDown = () => {
-            if(!hallownest.onTheGround(this)) {
-                this.y+=20;
-            } else {
-                clearInterval(fallId);
+            if (this.jumping === false) {
+                if(!hallownest.onTheGround(this)) {
+                    this.y+=20;
+                } else {
+                    clearInterval(fallId);
+                }
             }
         }
         const fallId = setInterval(fallDown, 24);

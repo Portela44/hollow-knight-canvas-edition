@@ -3,7 +3,10 @@ class Game{
     this.ctx = context;
     this.knight = new Player(25, 350, 55, 118, 4, 100);
     this.ghost = new Enemy(200, 340, 65, 130, 200);
-    this.enemies = [];
+    //ALERT! two enemies cannot have the same name.
+    this.enemies = [
+      this.ghost, 
+    ];
     this.healthArr = [];
   }
 
@@ -21,7 +24,7 @@ class Game{
           this.knight.jump();
           break;
         case "KeyW":
-          this.knight.attack();
+          this.makeAttack();
           break;          
         default:
           break;
@@ -34,18 +37,19 @@ class Game{
       this.ctx.drawImage(knight, this.knight.x, this.knight.y, this.knight.width, this.knight.height);
     } else if(this.knight.inv) {
       this.ctx.drawImage(knightinv, this.knight.x, this.knight.y, this.knight.width, this.knight.height);
-    }
-    
+    }  
   }
 
   arrayOfEnemies() {
-    this.enemies.push(this.ghost);
+    //this.enemies.push(this.ghost);
     //Any additional enemies will be placed here
     //ALERT! two enemies cannot have the same name.
   }
 
-  drawEnemy() {
-    this.ctx.drawImage(ghost, this.ghost.x, this.ghost.y, this.ghost.width, this.ghost.height);
+  drawEnemies() {
+    this.enemies.forEach(enemy => {
+      this.ctx.drawImage(enemy.image, enemy.x, enemy.y, enemy.width, enemy.height);
+    });
   }
 
   //temporary scenario blocks:
@@ -91,14 +95,14 @@ class Game{
     }
   }
 
-  // Función de ataque
-  _makeAttack() {
-    this.arrayOfEnemies.forEach(enemy => {
-      if(this.checkAttackRange(enemy)) {
-        enemy._getDamange(this.knight.strength)
+  // Función de ataque 
+  makeAttack() {
+    this.enemies.forEach(enemy => {
+      if(this._checkAttackRange(enemy)) {
+        enemy._getDamage(this.knight.strength)
       }
       if(enemy.health <= 0) {
-        this.arrayOfEnemies.splice(arrayOfEnemies.indexOf(enemy), 1);
+        this.enemies.splice(this.enemies.indexOf(enemy), 1);
       }
     });
   }
@@ -107,21 +111,29 @@ class Game{
     let enemyAtAttackRange = false;
     const knightsXMaxAttackRange = this.knight.x + this.knight.width + this.knight.attackRange;
     const knightsInvXMaxAttackRange = this.knight.x - this.knight.attackRange;
+    // First we check if the knight is looking right or looking left.
     if(!this.knight.inv) {
       if((
-        ((this.knight.x >= enemy.x) && (this.knight.x <= enemy.x + enemy.width)) ||
-        ((enemy.x >= this.knight.x) && (enemy.x <= this.knight.x + this.knight.width)) 
+        ((knightsXMaxAttackRange >= enemy.x) && (knightsXMaxAttackRange <= enemy.x + enemy.width)) 
       ) &&
       (
         ((this.knight.y >= enemy.y) && (this.knight.y <= enemy.y + enemy.height)) ||
         ((enemy.y >= this.knight.y) && (enemy.y <= this.knight.y + this.knight.height))
       )) 
       {
-
+        enemyAtAttackRange = true;
       }
-      
-    } else {
-
+    } else if (this.knight.inv) {
+      if((
+        ((knightsInvXMaxAttackRange >= enemy.x) && (knightsInvXMaxAttackRange <= enemy.x + enemy.width)) 
+      ) &&
+      (
+        ((this.knight.y >= enemy.y) && (this.knight.y <= enemy.y + enemy.height)) ||
+        ((enemy.y >= this.knight.y) && (enemy.y <= this.knight.y + this.knight.height))
+      )) 
+      {
+        enemyAtAttackRange = true;
+      }
     }
     return enemyAtAttackRange;
   }
@@ -181,8 +193,8 @@ class Game{
   _update() {
     this._clean();
     this.drawKnight();
-    this.arrayOfEnemies();
-    this.drawEnemy();
+    //this.arrayOfEnemies();
+    this.drawEnemies();
     this._drawScenario();
     this._checkCollisions();
     this._checkFallDown();
