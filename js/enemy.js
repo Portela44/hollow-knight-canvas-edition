@@ -21,8 +21,8 @@ class Enemy {
         }, 0);
     }
 
-    _getDamage(enemyStrength) {
-        this.health = this.health - enemyStrength;
+    _getDamage(knightStrength) {
+        this.health = this.health - knightStrength;
     }
 
 }

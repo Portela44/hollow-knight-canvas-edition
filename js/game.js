@@ -41,6 +41,7 @@ class Game{
   arrayOfEnemies() {
     this.enemies.push(this.ghost);
     //Any additional enemies will be placed here
+    //ALERT! two enemies cannot have the same name.
   }
 
   drawEnemy() {
@@ -91,17 +92,21 @@ class Game{
   }
 
   // Función de ataque
-  _activateAttack() {
-    this.arrayOfEnemies.forEach()
-    enemigo.recieveDamage(this.knight.attack());
+  _makeAttack() {
+    this.arrayOfEnemies.forEach(enemy => {
+      if(this.checkAttackRange(enemy)) {
+        enemy._getDamange(this.knight.strength)
+      }
+      if(enemy.health <= 0) {
+        this.arrayOfEnemies.splice(arrayOfEnemies.indexOf(enemy), 1);
+      }
+    });
   }
-  //Recordar eliminar enemigo de la array si lo mato para que deje de aparecer
 
-  _checkAttackRange() {
+  _checkAttackRange(enemy) {
     if(!this.knight.inv) {
 
     }
-    // a ese aplico _attackAttack()
   }
 
   _checkCollisions() {
