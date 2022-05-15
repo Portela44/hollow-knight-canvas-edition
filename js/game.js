@@ -104,9 +104,26 @@ class Game{
   }
 
   _checkAttackRange(enemy) {
+    let enemyAtAttackRange = false;
+    const knightsXMaxAttackRange = this.knight.x + this.knight.width + this.knight.attackRange;
+    const knightsInvXMaxAttackRange = this.knight.x - this.knight.attackRange;
     if(!this.knight.inv) {
+      if((
+        ((this.knight.x >= enemy.x) && (this.knight.x <= enemy.x + enemy.width)) ||
+        ((enemy.x >= this.knight.x) && (enemy.x <= this.knight.x + this.knight.width)) 
+      ) &&
+      (
+        ((this.knight.y >= enemy.y) && (this.knight.y <= enemy.y + enemy.height)) ||
+        ((enemy.y >= this.knight.y) && (enemy.y <= this.knight.y + this.knight.height))
+      )) 
+      {
+
+      }
+      
+    } else {
 
     }
+    return enemyAtAttackRange;
   }
 
   _checkCollisions() {
