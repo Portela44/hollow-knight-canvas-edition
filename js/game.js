@@ -96,14 +96,18 @@ class Game{
 
   // Función de ataque 
   makeAttack() {
-    this.enemies.forEach(enemy => {
-      if(this._checkAttackRange(enemy)) {
-        enemy._getDamage(this.knight.strength)
-      }
-      if(enemy.health <= 0) {
-        this.enemies.splice(this.enemies.indexOf(enemy), 1);
-      }
-    });
+    if(this.knight.canAttack) {
+      this.knight.canAttack = false;
+      setTimeout(() => this.knight.canAttack = true, 1000);
+      this.enemies.forEach(enemy => {
+        if(this._checkAttackRange(enemy)) {
+          enemy._getDamage(this.knight.strength)
+        }
+        if(enemy.health <= 0) {
+          this.enemies.splice(this.enemies.indexOf(enemy), 1);
+        }
+      });
+    }
   }
 
   _checkAttackRange(enemy) {

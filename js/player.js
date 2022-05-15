@@ -9,7 +9,7 @@ class Player {
         this.stepDistance = 25;
         this.jumpHeight = 200;
         this.jumping = false;
-        this.attackRange = 35;
+        this.attackRange = 45;
         this.canGetDamage = true; // controls knight's damage cooldown
         this.canAttack = true // controls knight's attack cooldown
         this.inv = false; // controls if knight turns around when walking
