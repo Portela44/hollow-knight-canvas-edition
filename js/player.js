@@ -8,7 +8,7 @@ class Player {
         this.strength = strength; //hit strenght
         this.stepDistance = 25;
         //this.jumpHeight = 200;
-        //this.jumping = false;
+        this.jumping = false;
         this.attackRange = 45;
         this.canGetDamage = true; // controls knight's damage cooldown
         this.canAttack = true // controls knight's attack cooldown
