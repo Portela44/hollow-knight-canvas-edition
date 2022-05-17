@@ -8,6 +8,9 @@ class Game{
       this.ghost, 
     ];
     this.healthArr = [];
+    //sounds
+    this.damageSound = new sound ("./sounds/damageSound.wav");
+    this.attackSound = new sound ("./sounds/sword.wav")
   }
 
   _assignControls() {
@@ -95,6 +98,7 @@ class Game{
     //first we set attack cooldown
     if(this.knight.canAttack) {
       this.knight.canAttack = false;
+      this.attackSound.play();
       setTimeout(() => this.knight.canAttack = true, 1000);
       //then we proceed with proper attack action
       this.enemies.forEach(enemy => {
@@ -152,8 +156,8 @@ class Game{
         ((enemy.y >= this.knight.y) && (enemy.y <= this.knight.y + this.knight.height))
       )) 
       {
-        //this.damageSound.play();
         this.knight._getDamage();
+        this.damageSound.play();
         if (this.knight.health < 1) {
           this.gameOver();
         }
@@ -178,6 +182,7 @@ class Game{
     losePage.style = "display: flex";
     const canvas = document.getElementById("canvas");
     canvas.style = "display: none";
+    this.damageSound.stop()
   }
 
   youWin() {
