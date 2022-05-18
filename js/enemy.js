@@ -7,6 +7,7 @@ class Enemy {
         this.health = health;
         this.moveRandomInterval = undefined;
         this.inv = false; // controls if knight turns around when walking
+        this.flying = true // only applies properties on flying enemies
     }
 
     _moveRandom() {
@@ -18,6 +19,9 @@ class Enemy {
                 this.inv = true;
             } else if (PlusOrMinus === 1) {
                 this.inv = false;
+            }
+            if(this.flying) {
+                this.y = this.y + randomMovement*PlusOrMinus*3;
             }
         }
 
