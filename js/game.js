@@ -11,6 +11,7 @@ class Game{
     //sounds
     this.damageSound = new sound ("./sounds/damageSound.wav");
     this.attackSound = new sound ("./sounds/sword.wav");
+    this.enemyHit = new sound ("./sounds/enemyHit.mp3");
     //attack animations
     this.attacking = false;
     //this.attackAnimation = attackEffect;
@@ -111,6 +112,7 @@ class Game{
       this.enemies.forEach(enemy => {
         if(this._checkAttackRange(enemy)) {
           enemy._getDamage(this.knight.strength)
+          this.enemyHit.play();
         }
         if(enemy.health <= 0) {
           this.enemies.splice(this.enemies.indexOf(enemy), 1);
