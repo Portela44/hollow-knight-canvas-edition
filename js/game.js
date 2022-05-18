@@ -10,7 +10,10 @@ class Game{
     this.healthArr = [];
     //sounds
     this.damageSound = new sound ("./sounds/damageSound.wav");
-    this.attackSound = new sound ("./sounds/sword.wav")
+    this.attackSound = new sound ("./sounds/sword.wav");
+    //attack animations
+    this.attacking = false;
+    //this.attackAnimation = attackEffect;
   }
 
   _assignControls() {
@@ -50,13 +53,15 @@ class Game{
     });
   }
 
-  //temporary scenario blocks:
+  
     
   _drawScenario() {
-    this.ctx.lineWidth = 10;
-    this.ctx.strokeRect(5, (350+this.knight.height), 500, 250);
-    this.ctx.strokeRect(505, (250+this.knight.height), 130, 250);
-    this.ctx.strokeRect(705, (250+this.knight.height), 290, 250);
+    this.ctx.drawImage(background, 0, 0, 1000, 600);
+    //temporary scenario blocks:
+    // this.ctx.lineWidth = 10;
+    // this.ctx.strokeRect(5, (350+this.knight.height), 500, 250);
+    // this.ctx.strokeRect(505, (250+this.knight.height), 130, 250);
+    // this.ctx.strokeRect(705, (250+this.knight.height), 290, 250);
   }
 
   _drawHealth() {
@@ -99,7 +104,9 @@ class Game{
     if(this.knight.canAttack) {
       this.knight.canAttack = false;
       this.attackSound.play();
+      this.attacking=true;
       setTimeout(() => this.knight.canAttack = true, 1000);
+      setTimeout(() => this.attacking = false, 100);
       //then we proceed with proper attack action
       this.enemies.forEach(enemy => {
         if(this._checkAttackRange(enemy)) {
@@ -109,6 +116,14 @@ class Game{
           this.enemies.splice(this.enemies.indexOf(enemy), 1);
         }
       });
+    }
+  }
+
+  _drawAttack() {
+    if((this.attacking) && (this.knight.inv)) {
+      this.ctx.drawImage(attackLeftEffect, this.knight.x - this.knight.width, this.knight.y, this.knight.width, this.knight.height);
+    } else if ((this.attacking) && (!this.knight.inv)) {
+      this.ctx.drawImage(attackRightEffect, this.knight.x + this.knight.width, this.knight.y, this.knight.width, this.knight.height);
     }
   }
 
@@ -198,9 +213,10 @@ class Game{
 
   _update() {
     this._clean();
+    this._drawScenario();
     this.drawKnight();
     this.drawEnemies();
-    this._drawScenario();
+    this._drawAttack();
     this._checkCollisions();
     this._checkFallDown();
     this._checkWin();

@@ -148,4 +148,15 @@ const lifeHUD = new Image();
 lifeHUD.src = "./img/life-HUD.png";
 
 const lifeHit = new Image();
-lifeHit.src = "./img/hit.png"; ;
+lifeHit.src = "./img/hit.png"; 
+
+//background image
+const background = new Image();
+background.src = "./img/background.png"
+
+//attack effect
+const attackLeftEffect = new Image();
+attackLeftEffect.src = "./img/attackLeft.png"
+
+const attackRightEffect = new Image();
+attackRightEffect.src = "./img/attackRight.png"
