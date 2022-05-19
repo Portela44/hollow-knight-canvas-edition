@@ -21,9 +21,23 @@
   color: white;
 }
 
-#lose-page {
-  background-image: url("../img/losePage.png");
+#start-page {
+  background-image: url("../img/gameMenu.png");
   background-size: 1000px;
+  text-align: center;
+  }
+
+#lose-page {
+  background-image: url("../img/losePage2.png");
+  background-size: 1100px;
+}
+
+#win-page {
+  background-image: url("../img/winPage.png");
+  background-size: 1500px;
+  justify-content: flex-start;
+  padding-top: 30px;
+  background-repeat: no-repeat;
 }
 
 body {
