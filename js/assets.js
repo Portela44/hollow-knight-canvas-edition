@@ -164,18 +164,18 @@ tiktik.src = "./img/tiktikRight.png";
 const tiktikinv = new Image();
 tiktikinv.src = "./img/tiktikLeft.png";
 
-// 
 
 // enemies image array of arrays
 const enemiesImages = [
-    [
-        ghost, ghostinv
-    ],
+
     [
         vengefly, vengeflyinv
     ],
     [
-        tiktik, tiktikinv
+        tiktikinv, tiktik
+    ],
+    [
+        tiktikinv, tiktik
     ],
 ]
 

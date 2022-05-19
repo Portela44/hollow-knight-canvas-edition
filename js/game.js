@@ -1,15 +1,15 @@
 class Game{
   constructor(context) {
     this.ctx = context;
-    this.knight = new Player(25, 350, 70, 118, 4, 100);
-    this.ghost = new Enemy(200, 340, 65, 130, 200, false);
+    this.knight = new Player(0, 480, 70, 118, 4, 100);
     this.vengefly = new Enemy(500, 180, 110, 100, 200, true);
-    this.tiktik = new Enemy(400, 500, 85, 75, 150, false);
+    this.tiktik1 = new Enemy(390, 460, 85, 76, 150, false);
+    this.tiktik2 = new Enemy(600, 460, 85, 76, 150, false);
     //ALERT! two enemies cannot have the same name.
     this.enemies = [
-      this.ghost,
       this.vengefly,
-      this.tiktik,
+      this.tiktik1,
+      this.tiktik2
     ];
     
     this.healthArr = [];
@@ -19,7 +19,6 @@ class Game{
     this.attackSound = new sound ("./sounds/sword.wav");
     this.enemyHit = new sound ("./sounds/enemyHit.mp3");
     this.soundtrack = new sound ("./sounds/soundtrack.mp3");
-    //attack animations
     this.attacking = false;
   }
 
@@ -235,9 +234,10 @@ class Game{
 
   start() {
     this._assignControls();
-    this.ghost._moveRandom();
+    //this.ghost._moveRandom();
     this.vengefly._moveRandom();
-    this.tiktik._moveRandom();
+    this.tiktik1._moveRandom();
+    this.tiktik2._moveRandom();
     this._update();
   }
 }
