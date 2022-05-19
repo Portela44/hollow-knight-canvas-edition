@@ -25,7 +25,6 @@ class Player {
         this.gravity = 1.2;
         this.speed = -20;
         this.fallSpeed = -5; //speed to be applied when falling
-        
     }
 
     moveRight() {
@@ -101,7 +100,8 @@ class Player {
         }
     }
     
-    
+
+
     //makes the player fall down if no ground is detected under feet.
     _fallDown() {
         const fallDown = () => {
@@ -149,7 +149,7 @@ class Player {
         if(this.canGetDamage) {
             this.health = this.health - 1;
             this.canGetDamage = false;
-            setTimeout(() => this.canGetDamage = true, 3000);
+            setTimeout(() => this.canGetDamage = true, 1700);
         }
     }
 }

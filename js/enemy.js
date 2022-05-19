@@ -13,6 +13,7 @@ class Enemy {
     _moveRandom() {
         const moveRandom = () => {
             let PlusOrMinus = Math.random() < 0.5 ? -1 : 1;
+            let PlusOrMinusFly = Math.random() < 0.4 ? -1 : 1;
             let randomMovement = Math.floor(Math.random()*8);
             this.x = this.x + randomMovement*PlusOrMinus;
             if (PlusOrMinus === -1) {
@@ -21,7 +22,7 @@ class Enemy {
                 this.inv = false;
             }
             if(this.flying) {
-                this.y = this.y + randomMovement*PlusOrMinus*2;
+                this.y = this.y + randomMovement*PlusOrMinusFly*2;
             }
         }
 

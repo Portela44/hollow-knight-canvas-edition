@@ -18,6 +18,16 @@
   margin: 0 auto;
   border: 1px solid black;
   margin-top: 30px;
+  color: white;
+}
+
+#lose-page {
+  background-image: url("../img/losePage.png");
+  background-size: 1000px;
+}
+
+body {
+  background-color: black;
 }
 
 #lose-page,

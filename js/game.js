@@ -121,7 +121,6 @@ class Game{
         }
         if(enemy.health <= 0) {
           this.enemies.splice(this.enemies.indexOf(enemy), 1);
-          this.enemiesImages.splice(this.enemiesImages.indexOf(enemy), 1);
         }
       });
     }
