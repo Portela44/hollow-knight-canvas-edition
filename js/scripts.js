@@ -11,5 +11,6 @@ window.onload = function () {
     const game = new Game(ctx);
     game.start();
     document.getElementById("menuSong").pause();
+    game.soundtrack.play();
   }
 }

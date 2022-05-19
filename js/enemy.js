@@ -1,5 +1,5 @@
 class Enemy {
-    constructor (x, y, width, height, health) {
+    constructor (x, y, width, height, health, flying) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -7,7 +7,7 @@ class Enemy {
         this.health = health;
         this.moveRandomInterval = undefined;
         this.inv = false; // controls if knight turns around when walking
-        this.flying = true // only applies properties on flying enemies
+        this.flying = flying // only applies properties on flying enemies
     }
 
     _moveRandom() {
@@ -21,7 +21,7 @@ class Enemy {
                 this.inv = false;
             }
             if(this.flying) {
-                this.y = this.y + randomMovement*PlusOrMinus*3;
+                this.y = this.y + randomMovement*PlusOrMinus*2;
             }
         }
 

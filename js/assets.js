@@ -128,20 +128,13 @@ jumpLeft9.src = "./img/jumpLeft9.png";
 
 const jumpLeftAnimation = [jumpLeft1, jumpLeft2, jumpLeft3, jumpLeft4, jumpLeft5, jumpLeft6, jumpLeft7, jumpLeft8, jumpLeft9]
 
-// ghost default
-const ghost = new Image();
-ghost.src = "./img/ghost.png";
+//attack effect
+const attackLeftEffect = new Image();
+attackLeftEffect.src = "./img/attackLeft.png"
 
-const ghostinv = new Image();
-ghostinv.src = "./img/ghostinv.png"
+const attackRightEffect = new Image();
+attackRightEffect.src = "./img/attackRight.png"
 
-// enemies image array of arrays
-const enemiesImages = [
-    [
-        ghost, ghostinv
-    ],
-
-]
 
 // Life HUD
 const lifeHUD = new Image();
@@ -150,13 +143,45 @@ lifeHUD.src = "./img/life-HUD.png";
 const lifeHit = new Image();
 lifeHit.src = "./img/hit.png"; 
 
+
+//ENEMIES
+// ghost default
+const ghost = new Image();
+ghost.src = "./img/ghost.png";
+
+const ghostinv = new Image();
+ghostinv.src = "./img/ghostinv.png"
+
+const vengefly = new Image();
+vengefly.src = "./img/vengeflyRight.png";
+
+const vengeflyinv = new Image();
+vengeflyinv.src = "./img/vengeflyLeft.png"
+
+const tiktik = new Image();
+tiktik.src = "./img/tiktikRight.png";
+
+const tiktikinv = new Image();
+tiktikinv.src = "./img/tiktikLeft.png";
+
+// 
+
+// enemies image array of arrays
+const enemiesImages = [
+    [
+        ghost, ghostinv
+    ],
+    [
+        vengefly, vengeflyinv
+    ],
+    [
+        tiktik, tiktikinv
+    ],
+]
+
+//BACKGROUND & SCENARIO
 //background image
 const background = new Image();
 background.src = "./img/background.png"
 
-//attack effect
-const attackLeftEffect = new Image();
-attackLeftEffect.src = "./img/attackLeft.png"
 
-const attackRightEffect = new Image();
-attackRightEffect.src = "./img/attackRight.png"
