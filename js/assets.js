@@ -164,7 +164,7 @@ tiktikinv.src = "./img/tiktikLeft.png";
 const enemiesImages = [
 
     [
-        vengefly, vengeflyinv
+        vengeflyinv, vengefly
     ],
     [
         tiktikinv, tiktik
