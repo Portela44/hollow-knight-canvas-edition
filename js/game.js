@@ -14,7 +14,6 @@ class Game{
     
     this.healthArr = [];
 
-    //sounds
     this.damageSound = new sound ("./sounds/damageSound.wav");
     this.attackSound = new sound ("./sounds/sword.wav");
     this.enemyHit = new sound ("./sounds/enemyHit.mp3");
@@ -23,7 +22,6 @@ class Game{
   }
 
   _assignControls() {
-    // Controles del teclado
     document.addEventListener('keydown', (event) => {
       switch (event.code) {
         case "ArrowLeft":
@@ -63,11 +61,6 @@ class Game{
     
   _drawScenario() {
     this.ctx.drawImage(background, 0, 0, 1000, 600);
-    //temporary scenario blocks:
-    // this.ctx.lineWidth = 10;
-    // this.ctx.strokeRect(5, (350+this.knight.height), 500, 250);
-    // this.ctx.strokeRect(505, (250+this.knight.height), 130, 250);
-    // this.ctx.strokeRect(705, (250+this.knight.height), 290, 250);
   }
 
   _drawHealth() {
@@ -104,7 +97,6 @@ class Game{
     }
   }
 
-  // Attack action when W is pressed.
   makeAttack() {
     //first we set attack cooldown
     if(this.knight.canAttack) {
@@ -204,7 +196,9 @@ class Game{
     losePage.style = "display: flex";
     const canvas = document.getElementById("canvas");
     canvas.style = "display: none";
-    this.damageSound.stop()
+    if(this.enemies.lenght !== 0) {
+      this.enemies.pop();
+    }
   }
 
   youWin() {
@@ -233,7 +227,6 @@ class Game{
 
   start() {
     this._assignControls();
-    //this.ghost._moveRandom();
     this.vengefly._moveRandom();
     this.tiktik1._moveRandom();
     this.tiktik2._moveRandom();

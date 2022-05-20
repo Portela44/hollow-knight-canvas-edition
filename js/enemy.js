@@ -6,7 +6,7 @@ class Enemy {
         this.height = height;
         this.health = health;
         this.moveRandomInterval = undefined;
-        this.inv = false; // controls if knight turns around when walking
+        this.inv = false; // controls if enemy turns around when walking
         this.flying = flying // only applies properties on flying enemies
     }
 

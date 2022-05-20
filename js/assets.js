@@ -146,11 +146,6 @@ lifeHit.src = "./img/hit.png";
 
 //ENEMIES
 // ghost default
-const ghost = new Image();
-ghost.src = "./img/ghost.png";
-
-const ghostinv = new Image();
-ghostinv.src = "./img/ghostinv.png"
 
 const vengefly = new Image();
 vengefly.src = "./img/vengeflyRight.png";

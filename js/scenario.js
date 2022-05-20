@@ -16,15 +16,12 @@ class Scenario {
 
     onTheGround(player) {
         let ground = false;
-        //block 1
+        //ground
         if((player.y >= 480) && (player.x >= 0) && (player.x <= 1100)) {
             ground = true;
-        //block 2
+        //block
         } else if ((player.y >= 410) && (player.x >= 160) && (player.x <= 775)) {
             ground = true;
-        //little rock 
-        // } else if ((player.y >= 410) && (player.y <= 380) && (player.x >= 680) && (player.x <= 750)) {
-
         }
         return ground;
     }
