@@ -138,8 +138,6 @@ class Player {
         }
         const fallId = setInterval(fallDown, 24);
     }
-    
-
     //generic function of getting damage from any enemy
     _getDamage() {
         if(this.canGetDamage) {
