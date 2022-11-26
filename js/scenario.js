@@ -1,7 +1,6 @@
 class Scenario {
     constructor() {
     }
-
     //checks if received xCoordinate, yCoordinate are inside a wall.
     insideWall(xCoordinate, yCoordinate) {
         let intoWall = false;
@@ -12,8 +11,6 @@ class Scenario {
         }
         return intoWall;
     }
-    
-
     onTheGround(player) {
         let ground = false;
         //ground
@@ -26,7 +23,6 @@ class Scenario {
         return ground;
     }
 }
-
 const hallownest = new Scenario();
 
 

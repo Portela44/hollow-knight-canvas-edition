@@ -25,7 +25,6 @@ class Player {
         this.speed = -20;
         this.fallSpeed = -5; //speed to be applied when falling
     }
-
     moveRight() {
         this.inv = false;
         if(!hallownest.insideWall(this.x + this.stepDistance, this.y)) {
@@ -43,7 +42,6 @@ class Player {
             this._fallDown();
         }
     }
-
     moveLeft() {
         this.inv = true;
         if(!hallownest.insideWall(this.x - this.stepDistance, this.y)) {
@@ -61,7 +59,6 @@ class Player {
             this._fallDown();
         }
     }
-    
     //allows the player to jump in the air a certain this.jumpHeight, BUT NOT fall again on the ground.
     jump() {
         if(hallownest.onTheGround(this)) {

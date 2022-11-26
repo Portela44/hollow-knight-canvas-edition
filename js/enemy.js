@@ -9,7 +9,6 @@ class Enemy {
         this.inv = false; // controls if enemy turns around when walking
         this.flying = flying // only applies properties on flying enemies
     }
-
     _moveRandom() {
         const moveRandom = () => {
             let PlusOrMinus = Math.random() < 0.5 ? -1 : 1;
@@ -25,15 +24,12 @@ class Enemy {
                 this.y = this.y + randomMovement*PlusOrMinusFly*2;
             }
         }
-
         setTimeout(function () {
             let randomInterval = 300+Math.random()*300;
             this.moveRandomInterval = setInterval(moveRandom, randomInterval);
         }, 0);
     }
-
     _getDamage(knightStrength) {
         this.health = this.health - knightStrength;
     }
-
 }
