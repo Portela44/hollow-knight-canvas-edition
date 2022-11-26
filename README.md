@@ -35,4 +35,4 @@ Minimum user stories:
 ## Useful links
 
 - [Presentation slides](https://docs.google.com/presentation/d/1_JdiE1hq6_7c2KO0Sh76PyrDZXfqVgabBcqBZqFtuN8/edit?usp=sharing)
-- [Deployed game](https://portela44.github.io/ih-project1-template/)
+- [Deployed game](https://portela44.github.io/hollow-knight-canvas-edition/)
